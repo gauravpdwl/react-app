@@ -1,0 +1,20 @@
+- name: build and push image to dockerhub                                                                                                                                        I
+  hosts: localhost
+  become: yes
+  become_user: gaurav
+
+  tasks:
+
+  - name: build the image
+    command: docker build -t react-jenkins-ansible .
+    args:
+      chdir: /home/gaurav/react-jenkins-ansible
+
+  - name: tag the image
+    command: docker tag react-jenkins-ansible gauravpadwal/react-jenkins-ansible:latest
+
+  - name:
+    command: docker push gauravpadwal/react-jenkins-ansible:latest
+
+  - name: remove the built image and the taged one
+    command: docker rmi react-jenkins-ansible gauravpadwal/react-jenkins-ansible:latest

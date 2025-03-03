@@ -26,6 +26,7 @@ function App() {
         </p>
         <p>
           testing ansible playbook..
+          testing docker setup through ansible..
         </p>
       </div>
       <p className="read-the-docs">
